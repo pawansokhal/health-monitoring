@@ -17,11 +17,13 @@ Make sure the following software is installed before you run the project:
    ```bash
    git clone https://github.com/pawansokhal/health-monitoring.git
    cd health-monitoring
+   ```
 
 
 **Install dependencies:**
 ```bash
 npm install
+```
 
 **Set up environment variables:**
 Create a .env file from example.env
@@ -31,19 +33,24 @@ Create a .env file from example.env
 After installing dependencies and setting up the environment, you can seed the database by running:
 ```bash
 node seed.js
-
+```
 
 **Run the build with docker:**
+```bash
 docker-compose up --build
+```
 
 
+### API Enpoints
 
 
-**API Endpoints:**
-Auth
+**Auth:**
+
 POST /api/auth/login — Login with username and password
 
-Patients (Admin/Doctor only)
+
+**Patients (Admin/Doctor only):**
+
 GET /api/patients?page=1 — Paginated fetch
 
 POST /api/patients — Add new patient
@@ -52,10 +59,12 @@ PUT /api/patients/:id — Update patient
 
 DELETE /api/patients/:id — Delete patient
 
-Devices (Admin only)
+
+**Devices (Admin only):**
+
 POST /api/devices — Add a new device
 
 POST /api/devices/assign — Assign device to patient
 
-Vitals Data
+**Vitals Data:**
 POST /api/readings — Public endpoint for devices to send readings
