@@ -22,10 +22,7 @@ app.use('/api/devices', authenticateToken, authorizeAdmin, deviceRoutes);
 app.use('/api/readings', readingRoutes);
 app.use(errorHandler);
 
-mongoose.connect(process.env.MONGODB_URI, {
-    // useNewUrlParser: true,
-    // useUnifiedTopology: true,
-}).then(() => {
+mongoose.connect(process.env.MONGODB_URI, {}).then(() => {
     console.log('MongoDB connected');
     app.listen(process.env.PORT || 3000, () => {
         console.log(`Server started on port ${process.env.PORT || 3000}`);

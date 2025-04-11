@@ -15,8 +15,8 @@ Make sure the following software is installed before you run the project:
    If you haven't already cloned the repository, run the following command:
 
    ```bash
-   git clone <your-repository-url>
-   cd <your-repository-directory>
+   git clone https://github.com/pawansokhal/health-monitoring.git
+   cd health-monitoring
 
 
 **Install dependencies:**
@@ -31,3 +31,31 @@ Create a .env file from example.env
 After installing dependencies and setting up the environment, you can seed the database by running:
 ```bash
 node seed.js
+
+
+**Run the build with docker:**
+docker-compose up --build
+
+
+
+
+**API Endpoints:**
+Auth
+POST /api/auth/login — Login with username and password
+
+Patients (Admin/Doctor only)
+GET /api/patients?page=1 — Paginated fetch
+
+POST /api/patients — Add new patient
+
+PUT /api/patients/:id — Update patient
+
+DELETE /api/patients/:id — Delete patient
+
+Devices (Admin only)
+POST /api/devices — Add a new device
+
+POST /api/devices/assign — Assign device to patient
+
+Vitals Data
+POST /api/readings — Public endpoint for devices to send readings

@@ -5,7 +5,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - MONGODB_URI=mongodb://mongo:27017/patient-monitoring
+      - MONGODB_URI=mongodb://mongo:27017/health-monitoring
       - JWT_SECRET=supersecret
       - PORT=3000
     depends_on:
