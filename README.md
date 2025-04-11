@@ -30,7 +30,7 @@ Create a .env file from example.env
 
 
 **Run the seed script:**
-After installing dependencies and setting up the environment, you can seed the database by running:
+After installing dependencies and setting up the environment, you can seed the database by running below commnds: It will insert admin and doctor role. 
 ```bash
 node seed.js
 ```
@@ -50,6 +50,8 @@ npm test
 
 
 **Auth:**
+
+**Registration API is not wrriten role of admin and doctor has provided by seed command**
 
 POST /api/auth/login — Login with username and password
 
@@ -78,16 +80,18 @@ POST /api/readings — Public endpoint for devices to send readings
 
 ### Tech Stack & Justification
 
-Node.js was chosen as the backend runtime because of its non-blocking, event-driven architecture, which is ideal for handling high-frequency input/output operations—perfect for a healthcare setting where multiple devices continuously stream data.
+**Node.js** was chosen as the backend runtime because of its non-blocking, event-driven architecture, which is ideal for handling high-frequency input/output operations—perfect for a healthcare setting where multiple devices continuously stream data.
 
-Express.js is used as the web framework due to its simplicity, flexibility, and vast ecosystem. It allows rapid development of RESTful APIs while maintaining good structure and middleware support.
+**Express.js** is used as the web framework due to its simplicity, flexibility, and vast ecosystem. It allows rapid development of RESTful APIs while maintaining good structure and middleware support.
 
-MongoDB was selected as the primary database because it handles high insert rates very efficiently. Since patient devices send frequent updates (potentially 10,000+ events per second), MongoDB's ability to scale horizontally and accept large volumes of write operations made it the most appropriate choice. Additionally, its flexible schema supports variable data formats, which is often required in medical systems.
+**MongoDB** was selected as the primary database because it handles high insert rates very efficiently. Since patient devices send frequent updates (potentially 10,000+ events per second), MongoDB's ability to scale horizontally and accept large volumes of write operations made it the most appropriate choice. Additionally, its flexible schema supports variable data formats, which is often required in medical systems.
 
-Mongoose serves as an ODM (Object Data Modeling) tool that helps structure the MongoDB collections and enforce validation rules without the rigidity of a traditional SQL schema.
+**Mongoose** serves as an ODM (Object Data Modeling) tool that helps structure the MongoDB collections and enforce validation rules without the rigidity of a traditional SQL schema.
 
-For authentication, JWT (JSON Web Tokens) was implemented to provide stateless and secure access control. This works well for modern APIs and supports role-based access without needing to maintain server-side sessions.
+For authentication, **JWT** (JSON Web Tokens) was implemented to provide stateless and secure access control. This works well for modern APIs and supports role-based access without needing to maintain server-side sessions.
 
-Docker and Docker Compose are used for containerization and orchestration of the API and MongoDB services. This setup ensures consistent environments across development and production, and simplifies running the application with minimal setup.
+**Docker** and **Docker Compose** are used for containerization and orchestration of the API and MongoDB services. This setup ensures consistent environments across development and production, and simplifies running the application with minimal setup.
 
-For testing, Jest was used due to its wide adoption in the Node.js community and excellent support for unit testing. Supertest complements Jest by providing utilities to perform and assert HTTP requests against the Express application, enabling integration tests for the API.
+For testing, **Jest** was used due to its wide adoption in the Node.js community and excellent support for unit testing. Supertest complements Jest by providing utilities to perform and assert HTTP requests against the Express application, enabling integration tests for the API.
+
+
